@@ -1,18 +1,11 @@
 # Setup
-title:        Project or Site name
+title:        不染丶Space
+description:  不愿染是与非，只做一个安安静静的小开发
 tagline:      A responsive theme for your project on GitHub Pages
 baseurl:      ""
-paginate:     1
-locale:       "en"
-
-# About/contact
 author:
-  name:       Author name
-  url:        http://yourhomepage.com 
-
-# Gems
-plugins:
-  - jekyll-paginate
+  name:       Xiaokun Jiang
+  url:        https://jiangxiaokun.com
 
 #Others
 markdown: kramdown
