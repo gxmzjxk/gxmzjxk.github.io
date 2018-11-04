@@ -1,11 +1,57 @@
-# Setup
-title:        不染丶Space
-description:  不愿染是与非，只做一个安安静静的小开发
-tagline:      A responsive theme for your project on GitHub Pages
-baseurl:      ""
-author:
-  name:       Xiaokun Jiang
-  url:        https://jiangxiaokun.com
+# Site Info
+title: 不愿染是与非
+tagline: ''
+description: '个人博客 技术 前端'
+baseurl: ""
+url: ''
+logo: '/public/logo.png'
 
-#Others
+# Site configurations
+plugins:
+  - jekyll-paginate
 markdown: kramdown
+kramdown:
+  input: GFM
+excerpt_separator: "<!-- more -->"
+sass:
+  style: compressed
+  sass_dir: _scss    
+paginate: 5
+paginate_path: '/blog/page:num'
+permalink: pretty
+
+version: 0.1.0
+
+# About/contact
+author:
+  name: Codinfox
+  description: 不愿染是与非，做一个安静的小开发
+  gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
+  contact:
+    github:    https://github.com/gxmzjxk
+    email:     jxk854613@163.com
+
+# Navigation (2nd level links supported)
+nav:
+  首页:           
+    - '/'
+  博客:          
+    - '/blog/'
+    - { 分类: '/blog/categories/' }
+    - { 标签: '/blog/tags/' }
+  关于:       
+    - '/about/'
+
+# Where are tags and categories displayed
+tag_page: '/blog/tags/'
+category_page: '/blog/categories/'
+
+hero:
+  image: /public/img/we_will_be_giants_by_yalestewart.jpg
+  caption: Original Artwork &copy; <a href="http://yalestewart.deviantart.com/art/We-Will-Be-Giants-370176475">Yale Stewart</a>
+
+# Puglins
+mathjax: false # whether support mathjax
+google_analytics_token: '' # leave blank if you don't want google analytics
+disqus_short_name: 'your_short_name' # leave blank if you don't want disqus
+
