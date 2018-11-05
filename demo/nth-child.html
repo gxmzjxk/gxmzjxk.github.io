@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nth-child 进阶使用</title>
+    <style>
+        .item-list {
+            position: relative;
+            width: 500px;
+            font-size: 0;
+            margin: 0 auto;
+        }
+        .item {
+            display: inline-block;
+            width: 33.3%;
+            height: 100px;
+            line-height: 100px;
+            background-color: aliceblue;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .item:nth-child(3n+1):nth-last-child(-n+3),
+        .item:nth-child(3n+1):nth-last-child(-n+3)~.item{
+           background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul class="item-list">
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+        <li class="item">4</li>
+        <li class="item">5</li>
+        <li class="item">6</li>
+        <li class="item">7</li>
+        <li class="item">8</li>
+    </ul>
+</body>
+</html>
