@@ -8,24 +8,26 @@
     <style>
         .item-list {
             position: relative;
-            width: 500px;
+            width: 300px;
             font-size: 0;
             margin: 0 auto;
         }
         .item {
             display: inline-block;
-            width: 33.3%;
-            height: 100px;
-            line-height: 100px;
-            background-color: aliceblue;
+            width: 25%;
+            height: 80px;
+            line-height: 80px;
             font-size: 16px;
             margin-bottom: 10px;
             text-align: center;
+            border: 1px solid silver;
+            box-sizing: border-box;
         }
-        .item:nth-child(3n+1):nth-last-child(-n+3),
-        .item:nth-child(3n+1):nth-last-child(-n+3)~.item{
-           background-color: red;
+        .item:nth-child(2n-1):nth-child(-n+8) {
+            background-color: silver;
         }
+        
+        
     </style>
 </head>
 <body>
@@ -38,6 +40,14 @@
         <li class="item">6</li>
         <li class="item">7</li>
         <li class="item">8</li>
+        <li class="item">9</li>
+        <li class="item">10</li>
+        <li class="item">11</li>
+        <li class="item">12</li>
+        <li class="item">13</li>
+        <li class="item">14</li>
+        <li class="item">15</li>
+        <li class="item">16</li>
     </ul>
 </body>
 </html>
