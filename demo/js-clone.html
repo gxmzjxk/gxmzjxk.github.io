@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JS-clone</title>
 </head>
+
 <body>
     <script>
         var plain1 = {
@@ -23,40 +25,25 @@
         var objArr = [
             plain1, plain2, plain3
         ];
-        var test1 = objArr.slice();
-        var test2 = objArr.concat();
-        var test3 = [...objArr];
-        var test4 = Array.from(objArr);
-        var test5 = objArr.map((item) => {
+        var t_slice = objArr.slice();
+        var t_concat = objArr.concat();
+        var t_spread = [...objArr];
+        var t_arrayfrom = Array.from(objArr);
+        var t_map = objArr.map((item) => {
             return item;
         });
+        var t_assign = Object.assign({}, objArr);
+        var t_stringify = JSON.parse(JSON.stringify(objArr));
         objArr[0].name = 'new name';
         objArr[0] = null;
-        console.log(test1[0].name);
-        console.log(test2[0].name);
-        console.log(test3[0].name);
-        console.log(test4[0].name);
-        console.log(test5[0].name);
-
-
-    /*    var pagesConfig = {
-            home: {
-                config: {
-
-                },
-                components: [
-
-                ]
-            },
-            match: {
-                config: {
-
-                },
-                components: [
-
-                ]
-            }
-        };*/
+        console.log(t_slice[0].name);// output: new name
+        console.log(t_concat[0].name);// output: new name
+        console.log(t_spread[0].name);// output: new name
+        console.log(t_arrayfrom[0].name);// output: new name
+        console.log(t_map[0].name);// output: new name
+        console.log(t_assign[0].name);// output: new name
+        console.log(t_stringify[0].name);// output: test1
     </script>
 </body>
+
 </html>
