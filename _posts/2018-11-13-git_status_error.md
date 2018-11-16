@@ -2,7 +2,7 @@
     layout: post
     title: 由git clone之后 all files modified 引发的思考
     category: CSS
-    tags: ['Git' 'GitHub', 'VScode', 'chromium', 'jekyll']
+    tags: ['Git', 'GitHub', 'VScode', 'chromium', 'jekyll']
 ---
 
 ## 缘起
@@ -94,7 +94,7 @@
 - 出现 all files modified 的原因**原来是**：`Clone succeeded, but checkout failed`
 - 而出现 `checkout failed` 的原因是一个乱码的文件夹，这个乱码文件夹是在Markdown引入图片资源的时候，jekyll创建的，找到了出问题的原因，解决起来就方便多了，只需要把乱码的文件夹改掉就好了
 - 由于文件 checkout failed，不敢直接改了上线，怕将错误的文件上传，覆盖了原本正常的文件，最后选择了直接GitHub上修改文件的方式。至此，**总算是将这个困扰许久的问题初步解决了**。
-- 那为什么会出现这个乱码的文件夹呢，难道是 jekyll 的锅？还有md文件也存在乱码，这两个问题很可能是同一个问题，乱码的解决过程，请看 [隐藏字符引发的血案]()
+- 那为什么会出现这个乱码的文件夹呢，难道是 jekyll 的锅？还有md文件也存在乱码，这两个问题很可能是同一个问题，乱码的解决过程，请看 [隐藏字符引发的血案](/css/2018/11/15/ghost_chars/)
 
 ## 反思
 > 传说软件开发有三个层次：看山是山(即能看到问题，也知道问题，却也只停留在问题层面)，看山不是山(能看到问题，也能看到问题的前因后果，开发语言也好技巧也罢，都是为了需求而生，你看到的是一堆纷繁的技术，他看到的是一堆实现目标的工具)，看山还是山(每一门技术有他的适用面也有它的局限性，没有最好只有最适合，JS还是那个JS，只是少年不再是那个少年)
@@ -107,11 +107,11 @@
 
 
 ## 意外收获
-[antony-hatchkins大神关于 core.autocrlf 的详解](https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf)
+[antony-hatchkins大神关于 core.autocrlf 的详解](https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf){:target="_blank"}
 
-[一堆有用的.gitattributes](https://github.com/alexkaratarakis/gitattributes)
+[一堆有用的.gitattributes](https://github.com/alexkaratarakis/gitattributes){:target="_blank"}
 
-[如何删除已经push到远端repo仓库的文件](https://www.zhihu.com/question/20418177)
+[如何删除已经push到远端repo仓库的文件](https://www.zhihu.com/question/20418177){:target="_blank"}
 - 最优的方案应该是:
 
 ```
@@ -122,8 +122,8 @@ git push -u origin master
 - 由于 git clone下来的所有文件都是 modified，且存在乱码( **下一篇博客会讲解如何解决乱码问题**)，所以不敢在 windows电脑上处理好之后再push，最终选择的是网页github 操作，即 **零点小筑** 的回答
 
 ## 参考
-[避免NTFS文件权限变更引起的修改](https://www.jianshu.com/p/3b0a9904daca)
+[避免NTFS文件权限变更引起的修改](https://www.jianshu.com/p/3b0a9904daca){:target="_blank"}
 
-[Git的gitattributes简介](https://www.jianshu.com/p/bcdb8fff1687)
+[Git的gitattributes简介](https://www.jianshu.com/p/bcdb8fff1687){:target="_blank"}
 
-[gitattributes官方文档](https://git-scm.com/docs/gitattributes)
+[gitattributes官方文档](https://git-scm.com/docs/gitattributes){:target="_blank"}
