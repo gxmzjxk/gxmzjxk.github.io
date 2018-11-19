@@ -2,7 +2,7 @@
     layout: post
     title: 隐藏字符引发的血案
     category: CSS
-    tags: ['GitHub', 'VScode', 'chromium']
+    tags: ['github', 'vscode', 'chromium']
 ---
 
 ## 前因

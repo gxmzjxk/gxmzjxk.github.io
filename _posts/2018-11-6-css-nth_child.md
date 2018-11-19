@@ -1,7 +1,7 @@
 ---
     layout: post
     title: 由一个特殊布局引发的思考
-    category: CSS
+    category: css
     tags: ['html', 'css']
 ---
 ## 由来

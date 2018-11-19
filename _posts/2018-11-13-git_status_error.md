@@ -2,7 +2,7 @@
     layout: post
     title: 由git clone之后 all files modified 引发的思考
     category: CSS
-    tags: ['Git', 'GitHub', 'VScode', 'chromium', 'jekyll']
+    tags: ['git', 'gitHub', 'vscode', 'chromium', 'jekyll']
 ---
 
 ## 缘起
