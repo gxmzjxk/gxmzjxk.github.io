@@ -1,6 +1,6 @@
 ---
     layout: post
-    title: 在 Git bash 中使用 Windows系统命令 乱码
+    title: windows 安装 jekyll
     category: windows
     tags: ['jekyll', 'windows', 'mac', 'ruby']
 ---
