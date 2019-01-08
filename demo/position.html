@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Position 的 Demo</title>
+    <style>
+        .wrap {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            /* width: 200px; */
+            width: 100%;
+            height: 300px;
+            background-color: silver;
+            overflow: hidden;
+        }
+        .box {
+            position: absolute;
+            left: -50px;
+            width: 200px;
+            height: 100px;
+            background-color: sienna;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrap">
+        <div class="box"></div>
+    </div> -->
+    <div class="test1">
+        <span style="position: relative;left: 50px;top: 10px; background-color: silver;">一马当先</span>
+        <span style="position: absolute;left: 0px; background-color: green;">紧随其后</span>
+        <span style="background-color: red;">尾大不掉</span>
+    </div>
+</body>
+</html>
