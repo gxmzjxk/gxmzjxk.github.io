@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+{% include head.html %}
+
+<body>
+    {% include sidebar.html %}
+    <div class="masthead">
+        <div class="demo-title">{{ page.title }} - 示例</div>
+    </div>
+    <div class="container content demo-page">
+        {{ content }}
+    </div>
+
+    <!-- 右上角菜单栏 -->
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
