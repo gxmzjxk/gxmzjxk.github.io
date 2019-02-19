@@ -43,11 +43,11 @@
 > How `autocrlf` works:
 > ```
 > core.autocrlf=true:      core.autocrlf=input:     core.autocrlf=false:
-> 
+>
 >         repo                     repo                     repo
 >       ^      V                 ^      V                 ^      V
 >      /        \               /        \               /        \
-> crlf->lf    lf->crl      crlf->lf       \             /          \       
+> crlf->lf    lf->crl      crlf->lf       \             /          \
 >    /            \           /            \           /            \
 > ```
 
@@ -64,7 +64,7 @@
 
 4. `core.filemode false`: 参考 [Git文档](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/git-config.html)， The default is true.
 > 因为NTFS没有Linux下丰富的权限，所以Git clone 下来的文件的权限很可能会发生变化，从而导致所有文件发生改变
-    
+
 - 虽然有文章表示：只有可执行文件才会受影响，但是本着死马当活马医的态度，还是将其置为false，表示忽略权限变更引起的文件变更，依然没有解决。
 
 5. `.gitattributes`
@@ -89,7 +89,7 @@
 
 ## 剧情反转 {#reverse}
 - 由于最开始的目的不是为了快速解决问题，而是探寻问题的本质，所以竟然趁着这个机会把Git又学习了一遍。但是再对Git了解更深后依然没有头绪。直到今天用公司的 windows 电脑再clone下来之后，在同事的提醒下发现了
-![](/public/img/1113/err_check.jpg)
+![](http://cdn.jiangxiaokun.com/img/blog/err_check.jpg)
 
 - 出现 all files modified 的原因**原来是**：`Clone succeeded, but checkout failed`
 - 而出现 `checkout failed` 的原因是一个乱码的文件夹，这个乱码文件夹是在Markdown引入图片资源的时候，jekyll创建的，找到了出问题的原因，解决起来就方便多了，只需要把乱码的文件夹改掉就好了

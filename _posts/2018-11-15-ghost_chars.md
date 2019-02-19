@@ -8,10 +8,10 @@
 ## 前因
 使用 `GitHub` 和 `jekyll` 搭建博客，公司的电脑是Mac，家里的电脑是windows，前面遇到了 git clone 下来文件所有文件都提示已更改的问题，对文件字符出现乱码的本质原因没有仔细探究。作为一个留了坑，心里会记很久的人，最有效的方法当然是探寻问题的本质，找到根本解决之法咯（没办法，我也是被迫的）
 
-### 问题表现 
+### 问题表现
 1. 因为文件名乱码导致 git clone 失败，git check failed，所有文件被标识为modified状态
 2. 文章在 windows 电脑上展示效果，不忍直视
-![](/public/img/1115/err_chars.png)
+![](http://cdn.jiangxiaokun.com/img/blog/err_chars.png)
 
 ## 尝试解决
 1. 首先怀疑是编码的问题，一个GBK, 一个utf-8的老问题，不能忽视，查看最终生成的HTML文件，meta 没有问题
@@ -31,7 +31,7 @@
 - 开启VScode显示隐藏字符的设置：`"editor.renderControlCharacters": true`
 
     可以看到确实出现了小小的类似`bs`这样的特殊字符，罪魁祸首找到了！
-![](/public/img/1115/scode_show.png)
+![](http://cdn.jiangxiaokun.com/img/blog/scode_show.png)
 
 - 那如何避免呢？遗憾的是这是内核底层的BUG，所以没有完美的解决方案
 
