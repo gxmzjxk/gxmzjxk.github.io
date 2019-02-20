@@ -26,7 +26,7 @@ version: 0.1.0
 author:
   name: Jack
   description: 不愿染是与非，做一个安静的小开发
-  avatar: '/public/img/avatar.jpg' # md5 hash of your email address
+  avatar: 'http://cdn.jiangxiaokun.com/img/blog/avatar.jpg' # md5 hash of your email address
   contact:
     github:    https://github.com/gxmzjxk
     email:     jxk854613@163.com
