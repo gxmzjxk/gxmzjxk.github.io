@@ -21,7 +21,7 @@ $('left wdC').on('click', function() {
 1. 在控制台输入：*$* 输出：`ƒ (e,t){return new de.fn.init(e,t)}`
 2. 如果全局的$没有被jQuery或者Zepto等使用，会输出
 
-![](http://cdn.jiangxiaokun.com/img/blog/event-01.png)
+![](//cdn.jiangxiaokun.com/img/blog/event-01.png)
 
 > 证明 jQuery 被正确加载，且已经在 window 全局注册
 
@@ -29,7 +29,7 @@ $('left wdC').on('click', function() {
 1. `$('left wdC')` 展开之后的`length` 为 0，context指向 `document`，证明并没有选择到元素
 > 如果使用的是原生的API，`document.querySelector('left wdC');`, 则会返回 `null`
 
-![](http://cdn.jiangxiaokun.com/img/blog/event-03.png)
+![](//cdn.jiangxiaokun.com/img/blog/event-03.png)
 
 2. 仔细一看，发现把 DOM 上的 class名 直接拷贝过来做成 `selector` 了，显然是错误的。
 3. 改成 `$('.left.wdC')`, 发现返回的结果`length` 为 1，key 为 0 的项指向的就是对应的 DOM
@@ -37,7 +37,7 @@ $('left wdC').on('click', function() {
 #### 3. 确认对应的监听是否已经添加到 `Dom`
 右键点击 `检查`，在弹出的调试窗口点击 `Event Listeners`, 点击 `click`, 拉到最下面发现 key 为 `div.left.wdC` 事件，证明监听已经加上
 
-![](http://cdn.jiangxiaokun.com/img/blog/event-02.png)
+![](//cdn.jiangxiaokun.com/img/blog/event-02.png)
 
 > 或者使用 Chrome 提供的调试 API: `getEventListeners($('.left.wdC')[0])`，也能看到对应的DOM上存在了click 事件侦听
 
@@ -46,14 +46,14 @@ $('left wdC').on('click', function() {
 #### 4. 确认监听事件的`回调函数`能够正常调用
 - 找到该元素，手动给`element.style`添加`pointer-events: auto;`
 
-![](http://cdn.jiangxiaokun.com/img/blog/event-04.png)
+![](//cdn.jiangxiaokun.com/img/blog/event-04.png)
 
 > 还是不行，进一步确认回调函数是否被执行。
 
 #### 5 确认回调函数确实被调用了
 在 `Event Listeners` 中点击 `VM` 开头的链接，在对应的资源中打上断点。再次点击，果然停在了断点处，证明点击事件的 **回调函数被正常执行！！！**
 
-![](http://cdn.jiangxiaokun.com/img/blog/event-06.png)
+![](//cdn.jiangxiaokun.com/img/blog/event-06.png)
 
 #### 6. 确认回调函数中的代码被正确执行
 > 回调函数真正执行的只有一行代码，但却没有成功？

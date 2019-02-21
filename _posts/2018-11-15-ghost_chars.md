@@ -11,7 +11,7 @@
 ### 问题表现
 1. 因为文件名乱码导致 git clone 失败，git check failed，所有文件被标识为modified状态
 2. 文章在 windows 电脑上展示效果，不忍直视
-![](http://cdn.jiangxiaokun.com/img/blog/err_chars.png)
+![](//cdn.jiangxiaokun.com/img/blog/err_chars.png)
 
 ## 尝试解决
 1. 首先怀疑是编码的问题，一个GBK, 一个utf-8的老问题，不能忽视，查看最终生成的HTML文件，meta 没有问题
@@ -31,7 +31,7 @@
 - 开启VScode显示隐藏字符的设置：`"editor.renderControlCharacters": true`
 
     可以看到确实出现了小小的类似`bs`这样的特殊字符，罪魁祸首找到了！
-![](http://cdn.jiangxiaokun.com/img/blog/scode_show.png)
+![](//cdn.jiangxiaokun.com/img/blog/scode_show.png)
 
 - 那如何避免呢？遗憾的是这是内核底层的BUG，所以没有完美的解决方案
 

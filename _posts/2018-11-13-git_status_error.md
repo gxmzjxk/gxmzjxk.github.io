@@ -89,7 +89,7 @@
 
 ## 剧情反转 {#reverse}
 - 由于最开始的目的不是为了快速解决问题，而是探寻问题的本质，所以竟然趁着这个机会把Git又学习了一遍。但是再对Git了解更深后依然没有头绪。直到今天用公司的 windows 电脑再clone下来之后，在同事的提醒下发现了
-![](http://cdn.jiangxiaokun.com/img/blog/err_check.jpg)
+![](//cdn.jiangxiaokun.com/img/blog/err_check.jpg)
 
 - 出现 all files modified 的原因**原来是**：`Clone succeeded, but checkout failed`
 - 而出现 `checkout failed` 的原因是一个乱码的文件夹，这个乱码文件夹是在Markdown引入图片资源的时候，jekyll创建的，找到了出问题的原因，解决起来就方便多了，只需要把乱码的文件夹改掉就好了
