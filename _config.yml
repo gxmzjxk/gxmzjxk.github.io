@@ -47,8 +47,8 @@ tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
 hero:
-  image:
-  caption:
+  image: 'https://cdn.jiangxiaokun.com/img/blog/ant-man.jpg'
+  caption: '小小的昆虫 &copy; xiaokun.jiang'
 # Puglins
 mathjax: false # whether support mathjax
 google_analytics_token: # leave blank if you don't want google analytics
