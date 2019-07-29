@@ -1,0 +1,249 @@
+<!DOCTYP html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+        <meta name="format-detection" content="telephone=no" />
+        <title>Orientation Demo</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                color: white;
+                -webkit-text-size-adjust: none;
+            }
+
+            .content {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                background-color: gray;
+                font-size: 14px;
+                overflow: hidden;
+            }
+
+            .center,
+            .block {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+            }
+
+            .center {
+                width: 120px;
+                height: 60px;
+                margin-left: -60px;
+                margin-top: -30px;
+                text-align: center;
+            }
+
+            .block {
+                margin-left: -60px;
+                margin-top: -60px;
+                width: 120px;
+                height: 120px;
+                background-color: black;
+                border-radius: 100%;
+            }
+
+            .tip {
+                position: absolute;
+                display: block;
+            }
+
+            .left {
+                left: 1em;
+                top: 50%;
+                margin-top: -1em;
+            }
+
+            .right {
+                right: 1em;
+                top: 50%;
+                margin-top: -1em;
+            }
+
+            .top {
+                top: 2em;
+                width: 100%;
+                text-align: center;
+            }
+
+            .bottom {
+                bottom: 3em;
+                width: 100%;
+                text-align: center;
+            }
+
+            .ball {
+                width: 120px;
+                line-height: 120px;
+                text-align: center;
+            }
+
+            .btns {
+                position: absolute;
+                position: absolute;
+                bottom: 1em;
+                width: 100%;
+                text-align: center;
+            }
+
+            .btn {
+                display: inline-block;
+                user-select: none;
+                text-decoration: none;
+                white-space: nowrap;
+                vertical-align: middle;
+                cursor: pointer;
+                user-select: none;
+                border: 1px solid black;
+                background-color: black;
+                border-radius: 3px;
+                -webkit-appearance: none;
+                appearance: none;
+                padding: 3px 10px;
+                font-weight: 600;
+                line-height: 20px;
+                min-width: 70px;
+            }
+
+            .btn.active {
+                color: black;
+                border: 1px solid white;
+                background-color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="content">
+            <p class="tip top"></p>
+            <p class="tip bottom"></p>
+            <p class="tip left"></p>
+            <p class="tip right"></p>
+            <p class="tip center">hahah</p>
+
+            <div class="block">
+                <p class="tip ball"></p>
+            </div>
+
+            <div class="btns">
+                <button id="init" class="btn active">Init</button>
+                <button id="pause" class="btn">Pause</button>
+                <button id="continue" class="btn">Continue</button>
+                <button id="destory" class="btn">Destory</button>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script src="https://cdn.jiangxiaokun.com/js/blog/orientation.js"></script>
+        <script type="text/javascript">
+            var $block = $(".block"),
+                $left = $(".left"),
+                $right = $(".right"),
+                $top = $(".top"),
+                $bottom = $(".bottom"),
+                $center = $(".center"),
+                $ball = $(".ball"),
+                $initBtn = $("#init"),
+                $destoryBtn = $("#destory");
+
+            var moveX = 0,
+                moveY = 0;
+            var ori = new Orientation({
+                onChange: function onChange(e) {
+                    // console.log('e:', e)
+                    var limitX = document.documentElement.clientWidth / 2,
+                        limitY = document.documentElement.clientHeight / 2;
+                    moveX += e.rightSlant;
+                    moveY += e.forwardSlant;
+                    moveX =
+                        Math.abs(moveX) > limitX
+                            ? limitX * (moveX / Math.abs(moveX))
+                            : moveX;
+                    moveY =
+                        Math.abs(moveY) > limitY
+                            ? limitY * (moveY / Math.abs(moveY))
+                            : moveY;
+                    // $block[0].style = 'transform:' + 'translate(' + e.leftSlant + 'px,' + e.forwardSlant + 'px)'
+                    $block[0].style.transform =
+                        "translate(" + moveX + "px," + moveY + "px)";
+
+                    $left[0].innerHTML =
+                        "leftRotate:" +
+                        Math.floor(e.leftRotate) +
+                        "<br>" +
+                        "leftSlant:" +
+                        Math.floor(e.leftSlant) +
+                        "<br>" +
+                        "isLeft:" +
+                        e.isLeft;
+                    $right[0].innerHTML =
+                        "rightRotate:" +
+                        Math.floor(e.rightRotate) +
+                        "<br>" +
+                        "rightSlant:" +
+                        Math.floor(e.rightSlant) +
+                        "<br>" +
+                        "isRight:" +
+                        e.isRight;
+                    $top[0].innerHTML =
+                        "forwardSlant:" +
+                        Math.floor(e.forwardSlant) +
+                        "<br>" +
+                        "isForward:" +
+                        e.isForward +
+                        "<br>" +
+                        "relativeForwardSlant:" +
+                        Math.floor(e.relativeForwardSlant) +
+                        "<br>" +
+                        "isRelativeForward:" +
+                        e.isRelativeForward;
+                    $bottom[0].innerHTML =
+                        "backwardSlant:" +
+                        Math.floor(e.backwardSlant) +
+                        "<br>" +
+                        "isBackward:" +
+                        e.isBackward +
+                        "<br>" +
+                        "relativeBackwardSlant:" +
+                        Math.floor(e.relativeBackwardSlant) +
+                        "<br>" +
+                        "isRelativeBackward:" +
+                        e.isRelativeBackward;
+                    $center[0].innerHTML =
+                        // 'alpha:' + Math.floor(e.alpha) + '<br>' +
+                        // 'beta:' + Math.floor(e.beta) + '<br>' +
+                        // 'gamma:' + Math.floor(e.gamma) + '<br>' +
+                        // 'orientation' + e.orientation + '<br>' +
+                        "lon:" +
+                        Math.floor(e.lon) +
+                        "<br>" +
+                        "lat:" +
+                        Math.floor(e.lat) +
+                        "<br>" +
+                        "offsetLon:" +
+                        Math.floor(e.offsetLon * 1000) / 1000 +
+                        "<br>" +
+                        "offsetLat:" +
+                        Math.floor(e.offsetLat * 1000) / 1000;
+                    $ball[0].innerHTML =
+                        "initForwardSlant:" + Math.floor(e.initForwardSlant);
+                }
+            });
+            ori.init();
+
+            $(".btns").on("click", ".btn", function (e) {
+                $(".btns .btn").removeClass("active");
+                var $btn = $(e.target);
+                $btn.addClass("active");
+                var id = $btn.attr("id");
+                ori[id] && ori[id]();
+            });
+        </script>
+    </body>
+
+    </html>
