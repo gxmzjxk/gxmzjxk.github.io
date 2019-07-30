@@ -14,6 +14,7 @@
                 color: white;
                 -webkit-text-size-adjust: none;
             }
+
             body {
                 background-color: aliceblue;
             }
@@ -33,30 +34,43 @@
     </head>
 
     <body>
-        <div className="container">
-            <img className="img"
-                src="https://mms-xr.cdn.bcebos.com/panorama/6975ac76-1aa3-409a-befe-bbc36b2f5057/cover.jpg@h_220" />
-        </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-        <script src="https://cdn.jiangxiaokun.com/js/blog/orientation.js"></script>
-        <script type="text/javascript">
-            var moveX = 0,
-                moveY = 0;
-            var ori = new Orientation({
-                onChange: function onChange(e) {
-                    if (e.isLeft) {
-                        document.writeln('往左倾斜');
-                    } else if (e.isRight) {
-                        document.writeln('往右倾斜');
-                    } else if (e.isForward) {
-                        document.writeln('往前倾斜');
-                    } else if (e.isBackward) {
-                        document.writeln('往后倾斜');
+        <script>
+            function DeviceOrientationHandler(event) {
+                var alpha = event.alpha,
+                    beta = event.beta,
+                    gamma = event.gamma;
+
+                if (alpha != null || beta != null || gamma != null) {
+                    dataContainerOrientation.innerHTML = "alpha:" + alpha + "<br />beta:" + beta + "<br />gamma:" + gamma;
+                    //判断屏幕方向
+                    var html = "";
+                    if (Math.abs(gamma) < GAMMA_MIN && Math.abs(beta) > BETA_MAX) {
+                        html = "屏幕方向：Portrait";
                     }
+
+                    if (Math.abs(beta) < BETA_MIN && Math.abs(gamma) > GAMMA_MAX) {
+                        html = "屏幕方向：Landscape";
+                    }
+
+                    var gamma_html = "";
+                    if (gamma > 0) {
+                        gamma_html = "向右倾斜";
+                    } else {
+                        gamma_html = "向左倾斜";
+                    }
+                    html += "<br />" + gamma_html;
+                    stage.innerHTML = html;
+                } else {
+                    dataContainerOrientation.innerHTML = "当前浏览器不支持DeviceOrientation";
                 }
-            });
-            ori.init();
+            }
+            //add deviceorientation event listener
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', DeviceOrientationHandler, false);
+            } else {
+                alert("您的浏览器不支持DeviceOrientation");
+            }
         </script>
     </body>
 
